@@ -1,1 +1,1 @@
-﻿var module = angular.module("baasic.baasicKeyValue", ["baasic.baasicApi"]);
+﻿var module = angular.module("baasic.keyValue", ["baasic.api"]);
