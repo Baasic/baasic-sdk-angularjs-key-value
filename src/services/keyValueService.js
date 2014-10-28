@@ -3,12 +3,12 @@
     module.service("baasicKeyValueService", ["baasicApiHttp", "baasicApiService", "baasicConstants", "baasicKeyValueRouteService",
         function (baasicApiHttp, baasicApiService, baasicConstants, keyValueRouteService) {
             return {
-				routeService: keyValueRouteService,
-                find: function (data) {
-                    return baasicApiHttp.get(keyValueRouteService.find.expand(baasicApiService.findParams(data)));
+                routeService: keyValueRouteService,
+                find: function (options) {
+                    return baasicApiHttp.get(keyValueRouteService.find.expand(baasicApiService.findParams(options)));
                 },
-                get: function (data) {
-                    return baasicApiHttp.get(keyValueRouteService.get.expand(baasicApiService.getParams(data)));
+                get: function (id, options) {
+                    return baasicApiHttp.get(keyValueRouteService.get.expand(baasicApiService.getParams(id, options)));
                 },
                 create: function (data) {
                     return baasicApiHttp.post(keyValueRouteService.create.expand(), baasicApiService.createParams(data)[baasicConstants.modelPropertyName]);

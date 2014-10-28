@@ -7,9 +7,9 @@
         "use strict";
         module.service("baasicKeyValueRouteService", ["baasicUriTemplateService", function (uriTemplateService) {
             return {
-                find: uriTemplateService.parse("keyvalue/{?searchQuery,page,rpp,sort,embed,fields}"),
-                get: uriTemplateService.parse("keyvalue/{key}/{?embed,fields}"),
-                create: uriTemplateService.parse("keyvalue"),
+                find: uriTemplateService.parse("key-values/{?searchQuery,page,rpp,sort,embed,fields}"),
+                get: uriTemplateService.parse("key-values/{id}/{?embed,fields}"),
+                create: uriTemplateService.parse("key-values"),
                 parse: uriTemplateService.parse
             };
         }]);
@@ -19,11 +19,11 @@
         module.service("baasicKeyValueService", ["baasicApiHttp", "baasicApiService", "baasicConstants", "baasicKeyValueRouteService", function (baasicApiHttp, baasicApiService, baasicConstants, keyValueRouteService) {
             return {
                 routeService: keyValueRouteService,
-                find: function (data) {
-                    return baasicApiHttp.get(keyValueRouteService.find.expand(baasicApiService.findParams(data)));
+                find: function (options) {
+                    return baasicApiHttp.get(keyValueRouteService.find.expand(baasicApiService.findParams(options)));
                 },
-                get: function (data) {
-                    return baasicApiHttp.get(keyValueRouteService.get.expand(baasicApiService.getParams(data)));
+                get: function (id, options) {
+                    return baasicApiHttp.get(keyValueRouteService.get.expand(baasicApiService.getParams(id, options)));
                 },
                 create: function (data) {
                     return baasicApiHttp.post(keyValueRouteService.create.expand(), baasicApiService.createParams(data)[baasicConstants.modelPropertyName]);
