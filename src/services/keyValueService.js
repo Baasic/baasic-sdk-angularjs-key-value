@@ -11,7 +11,7 @@
                     return baasicApiHttp.get(keyValueRouteService.get.expand(baasicApiService.getParams(id, options)));
                 },
                 create: function (data) {
-                    return baasicApiHttp.post(keyValueRouteService.create.expand(), baasicApiService.createParams(data)[baasicConstants.modelPropertyName]);
+                    return baasicApiHttp.post(keyValueRouteService.create.expand(data), baasicApiService.createParams(data)[baasicConstants.modelPropertyName]);
                 },
                 update: function (data) {
                     var params = baasicApiService.updateParams(data);
