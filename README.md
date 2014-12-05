@@ -14,11 +14,9 @@ This section will describe how to add the Baasic AngularJS Key-Value library to 
 
 ### Adding the Library to your Project
 
-Please add the following lines of code after the AngularJS include:
+Please add the _Baasic Key-Value_ include after the _Baasic Angular Core_ include:
 
 ```html
-<script src='//cdn.net/js/hal-parser.js'></script>
-<script src='//cdn.net/js/uritemplate-min.js'></script>
 <script src='//cdn.net/js/baasic-angular-1.0.0.min.js'></script>
 <script src='//cdn.net/js/baasic-angular-key-value-1.0.0.min.js'></script>
 ```
@@ -36,6 +34,37 @@ angular.module('my-module', ["baasic.api", "baasic.keyValue"])
 
 ## Key-Value Module
 
+Explanations of Baasic AngularJS Key-Value services and their functions can be found bellow. For further details please check the [API documentation](#tba)
+
+##### keyValueService
+
+Baasic Key-Value Service provides an easy way to consume Baasic Key-Value REST routes.
+
+* `get` - Gets a single Key-Value item by Id
+* `find` - Finds Key-Value items by given criteria
+* `create` - Creates a new Key-Value item
+* `update` - Updates a Key-Value item
+* `remove` - Deletes a Key-Value item
+* `routeService` - Provides direct access to `keyValueRouteService`
+
+##### keyValueRouteService
+
+Baasic Key-Value Route Service provides Baasic route templates which can then be expanded to Baasic REST URI's through the [URI Template](https://github.com/Baasic/uritemplate-js) by providing it with an object that contains URI parameters. `keyValueService` uses `keyValueRouteService` to obtain all the needed URI's.
+
+* `get` - "Get" Key-Value URI
+* `find` - "Find" Key-Value URI
+* `create` - "Create" Key-Value URI
+* `update` - "Update" Key-Value URI (obtained through HAL)
+* `remove` - "Delete" Key-Value URI (obtained through HAL)
+* `parse` - Provides direct access to the `uriTemplateService`
+
+URI templates can be expanded manually like this:
+
+```javascript
+var params = { searchQuery: "myQuery", page: 4, rpp: 3 };
+keyValueRouteService.find.expand(params); // this will yield "/key-values/?searchQuery=myQuery&page=4&rpp=3"
+```
+
 ## Build Process
 
 1. Install [NodeJs](http://nodejs.org/download/)
@@ -46,19 +75,8 @@ angular.module('my-module', ["baasic.api", "baasic.keyValue"])
 
 ## Contributing
 
-##### Pull requests are always welcome
-
-We appreciate pull requests you make, and we'll do our best to process them as quickly as we can. Even if it's just a typo you found or any small or large issue you fixed - please do it! It will help us a lot.
-
-If your pull request is not accepted on your first try, don't be discouraged! If there's a problem with your implementation, hopefully you received feedback on what to improve.
-
-##### Issue reporting
-
-Before you create a new issue, please make sure it hasn't already been reported. In case it already exists simply add a quick _"+1"_ or _"I have the same problem"_ to the existing issue thread.
-
-##### Other
 * [Pull requests are always welcome](https://github.com/Baasic/baasic-sdk-sdk-angularjs-core#pull-requests-are-always-welcome)
-* [Report issues](https://github.com/Baasic/baasic-sdk-sdk-angularjs-core#issue-reporting)
+* Please [report](https://github.com/Baasic/baasic-sdk-sdk-angularjs-core#issue-reporting) any issues you might  have found
 * Help us write the documentation
 * Create interesting apps using SDK
 * Looking for something else to do? Get in touch..
