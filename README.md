@@ -6,17 +6,11 @@ Baasic AngularJS Key-Value library provides access to key-value resource Baasic 
 
 Baasic AngularJS Key-Value library has the following dependencies:
 
-* [Baasic JavaScript Framework](https://github.com/Baasic/baasic-sdk-javascript) ??
 * [Baasic Core AngularJS SDK](https://github.com/Baasic/baasic-sdk-sdk-angularjs-core)
-* [AngularJS](http://www.angularjs.org/) (>= 1.2.16)
-* [HAL Parser](https://github.com/Baasic/angular-hal)
-* [URI Template](https://github.com/Baasic/uritemplate-js)
 
 ## Usage
 
-This section will describe how to add the Baasic AngularJS Key-Value library to your project. It's important to know that Baasic AngularJS SDK uses HAL+JSON format for the back-end communication. You can find out more about HAL format [here](http://stateless.co/hal_specification.html).
-
-If you prefer learning by example please skip to [Demo Section](#demo).
+This section will describe how to add the Baasic AngularJS Key-Value library to your project. If you prefer learning by example please skip to [Demo Section](#demo).
 
 ### Adding the Library to your Project
 
@@ -37,7 +31,7 @@ The recommended way of serving the library is through a [CDN](http://en.wikipedi
 To be able to use the library you will need to add the Baasic (_baasic.keyValue_) dependency to your AngularJS module. This will allow you to use library services described in [Modules Section](#baasic-modules).
 
 ```javascript
-angular.module('my-module', ["baasic.keyValue"])
+angular.module('my-module', ["baasic.api", "baasic.keyValue"])
 ```
 
 ## Key-Value Module
@@ -63,7 +57,8 @@ If your pull request is not accepted on your first try, don't be discouraged! If
 Before you create a new issue, please make sure it hasn't already been reported. In case it already exists simply add a quick _"+1"_ or _"I have the same problem"_ to the existing issue thread.
 
 ##### Other
-
+* [Pull requests are always welcome](https://github.com/Baasic/baasic-sdk-sdk-angularjs-core#pull-requests-are-always-welcome)
+* [Report issues](https://github.com/Baasic/baasic-sdk-sdk-angularjs-core#issue-reporting)
 * Help us write the documentation
 * Create interesting apps using SDK
 * Looking for something else to do? Get in touch..
