@@ -34,7 +34,7 @@ angular.module('my-module', ["baasic.api", "baasic.keyValue"])
 
 ## Key-Value Module
 
-Explanations of Baasic AngularJS Key-Value services and their functions can be found bellow. For further details please check the [API documentation](#tba)
+Baasic AngularJS Key-Value services and their functions can be found bellow. For further details please check the [API documentation](#tba)
 
 ##### keyValueService
 
@@ -46,6 +46,33 @@ Baasic Key-Value Service provides an easy way to consume Baasic Key-Value REST r
 * `update` - Updates a Key-Value item
 * `remove` - Deletes a Key-Value item
 * `routeService` - Provides direct access to `keyValueRouteService`
+
+Here are a few examples on how to use the `keyValueService`:
+
+```javascript
+var id = "73a22b5d-e5ef-44f2-9c81-a3fb01063f86";
+baasicKeyValueService.get(id)
+    .success(function(data) {
+        // data variable contains a single key-value object that match the key/id
+    });
+```
+
+```javascript
+var options = { searchQuery: "myQuery", page: 4, rpp: 3 };
+baasicKeyValueService.find(options)
+    .success(function(data) {
+        // data variable contains a collection of key-value objects that match the filtering parameters
+    });
+```
+
+For functions such as `update` and `remove` that don't use `keyValueRouteService` for obtaining route templates, routes can be obtained from key-value (HAL enabled) objects like this:
+
+```javascript
+var params = baasicApiService.removeParams(keyValueObject);
+var uri = params["model"].links('delete').href;
+// i.e. if the keyValueObject had the following id: "73a22b5d-e5ef-44f2-9c81-a3fb01063f86"
+// the uri would yield "/key-values/73a22b5d-e5ef-44f2-9c81-a3fb01063f86"
+```
 
 ##### keyValueRouteService
 
@@ -62,7 +89,8 @@ URI templates can be expanded manually like this:
 
 ```javascript
 var params = { searchQuery: "myQuery", page: 4, rpp: 3 };
-keyValueRouteService.find.expand(params); // this will yield "/key-values/?searchQuery=myQuery&page=4&rpp=3"
+var uri = keyValueRouteService.find.expand(params);
+// uri will yield "/key-values/?searchQuery=myQuery&page=4&rpp=3"
 ```
 
 ## Build Process
