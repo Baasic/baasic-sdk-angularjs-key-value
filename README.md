@@ -40,11 +40,11 @@ Baasic AngularJS Key-Value services and their functions can be found bellow. For
 
 Baasic Key-Value Service provides an easy way to consume Baasic Key-Value REST routes.
 
-* `get` - Gets a single Key-Value item by Id
-* `find` - Finds Key-Value items by given criteria
-* `create` - Creates a new Key-Value item
-* `update` - Updates a Key-Value item
-* `remove` - Deletes a Key-Value item
+* `get` - Gets a single key-value item by Id
+* `find` - Finds key-value items by given criteria
+* `create` - Creates a new key-value item
+* `update` - Updates a key-value item
+* `remove` - Deletes a key-value item
 * `routeService` - Provides direct access to `keyValueRouteService`
 
 Here are a few examples on how to use the `keyValueService`:
@@ -76,13 +76,11 @@ var uri = params["model"].links('delete').href;
 
 ##### keyValueRouteService
 
-Baasic Key-Value Route Service provides Baasic route templates which can then be expanded to Baasic REST URI's through the [URI Template](https://github.com/Baasic/uritemplate-js) by providing it with an object that contains URI parameters. `keyValueService` uses `keyValueRouteService` to obtain all the needed URI's.
+Baasic Key-Value Route Service provides Baasic route templates which can then be expanded to Baasic REST URI's through the [URI Template](https://github.com/Baasic/uritemplate-js) by providing it with an object that contains URI parameters. `keyValueService` uses `keyValueRouteService` to obtain a part of needed routes while the other part is obtained through HAL. `keyValueRouteService` by convention uses the same function names as `keyValueService`.
 
-* `get` - "Get" Key-Value URI
-* `find` - "Find" Key-Value URI
-* `create` - "Create" Key-Value URI
-* `update` - "Update" Key-Value URI (obtained through HAL)
-* `remove` - "Delete" Key-Value URI (obtained through HAL)
+Here is a list of all the URI templates that can be obtained by the `keyValueRouteService`:
+
+* `get`, `find`, `create`
 * `parse` - Provides direct access to the `uriTemplateService`
 
 URI templates can be expanded manually like this:
