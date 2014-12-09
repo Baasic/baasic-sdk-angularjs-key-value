@@ -78,7 +78,7 @@ var uri = params["model"].links('delete').href;
 
 Baasic Key-Value Route Service provides Baasic route templates which can then be expanded to Baasic REST URI's through the [URI Template](https://github.com/Baasic/uritemplate-js) by providing it with an object that contains URI parameters. `keyValueService` uses `keyValueRouteService` to obtain a part of needed routes while the other part is obtained through HAL. `keyValueRouteService` by convention uses the same function names as `keyValueService`.
 
-Here is a list of all the URI templates that can be obtained by the `keyValueRouteService`:
+Here is a list of all the `keyValueRouteService` functions:
 
 * `get`, `find`, `create`
 * `parse` - Provides direct access to the `uriTemplateService`
