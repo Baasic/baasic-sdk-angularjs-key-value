@@ -1,12 +1,12 @@
 # Baasic Key-Value AngularJS SDK
 
-Baasic AngularJS Key-Value library provides access to key-value resource Baasic Service [REST API](https://api.baasic.com).
+Baasic AngularJS Key-Value library provides access to Key-Value Baasic [REST API](https://api.baasic.com).
 
 ## Dependencies
 
 Baasic AngularJS Key-Value library has the following dependencies:
 
-* [Baasic Core AngularJS SDK](https://github.com/Baasic/baasic-sdk-sdk-angularjs-core)
+* [Baasic Core AngularJS SDK](https://github.com/Baasic/baasic-sdk-angularjs-core)
 
 ## Usage
 
@@ -38,19 +38,19 @@ Baasic AngularJS Key-Value services and their functions can be found bellow. For
 
 ##### keyValueService
 
-Baasic Key-Value Service provides an easy way to consume Baasic Key-Value REST routes.
+Baasic Key-Value Service provides an easy way to consume Baasic Key-Value REST API.
 
-* `get` - Gets a single key-value item by Id
-* `find` - Finds key-value items by given criteria
-* `create` - Creates a new key-value item
-* `update` - Updates a key-value item
-* `remove` - Deletes a key-value item
+* `get` - Gets a single key-value resource by Id
+* `find` - Finds key-value resources by given criteria
+* `create` - Creates a new key-value resource
+* `update` - Updates a key-value resource
+* `remove` - Deletes a key-value resource
 * `routeService` - Provides direct access to `keyValueRouteService`
 
 Here are a few examples on how to use the `keyValueService`:
 
 ```javascript
-var id = "73a22b5d-e5ef-44f2-9c81-a3fb01063f86";
+var id = "myKey";
 baasicKeyValueService.get(id)
     .success(function(data) {
         // data variable contains a single key-value object that match the key/id
@@ -58,25 +58,25 @@ baasicKeyValueService.get(id)
 ```
 
 ```javascript
-var options = { searchQuery: "myQuery", page: 4, rpp: 3 };
+var options = { searchQuery: "myQuery", page: 1, rpp: 10 };
 baasicKeyValueService.find(options)
     .success(function(data) {
         // data variable contains a collection of key-value objects that match the filtering parameters
     });
 ```
-
+__Note__
 For functions such as `update` and `remove` that don't use `keyValueRouteService` for obtaining route templates, routes can be obtained from key-value (HAL enabled) objects like this:
 
 ```javascript
 var params = baasicApiService.removeParams(keyValueObject);
 var uri = params["model"].links('delete').href;
-// i.e. if the keyValueObject had the following id: "73a22b5d-e5ef-44f2-9c81-a3fb01063f86"
-// the uri would yield "/key-values/73a22b5d-e5ef-44f2-9c81-a3fb01063f86"
+// i.e. if the keyValueObject had the following id: "myKey"
+// the uri would yield "/key-values/myKey"
 ```
 
 ##### keyValueRouteService
 
-Baasic Key-Value Route Service provides Baasic route templates which can then be expanded to Baasic REST URI's through the [URI Template](https://github.com/Baasic/uritemplate-js) by providing it with an object that contains URI parameters. `keyValueService` uses `keyValueRouteService` to obtain a part of needed routes while the other part is obtained through HAL. `keyValueRouteService` by convention uses the same function names as `keyValueService`.
+Baasic Key-Value Route Service provides Baasic route templates which can be expanded to Baasic REST URI's through the [URI Template](https://github.com/Baasic/uritemplate-js) by providing it with an object that contains URI parameters. `keyValueService` uses `keyValueRouteService` to obtain a part of needed routes while the other part is obtained through HAL. `keyValueRouteService` by convention uses the same function names as `keyValueService`.
 
 Here is a list of all the `keyValueRouteService` functions:
 
@@ -86,9 +86,9 @@ Here is a list of all the `keyValueRouteService` functions:
 URI templates can be expanded manually like this:
 
 ```javascript
-var params = { searchQuery: "myQuery", page: 4, rpp: 3 };
+var params = { searchQuery: "myQuery", page: 1, rpp: 10 };
 var uri = baasicKeyValueRouteService.find.expand(params);
-// uri will yield "/key-values/?searchQuery=myQuery&page=4&rpp=3"
+// uri will yield "/key-values/?searchQuery=myQuery&page=1&rpp=10"
 ```
 
 ## Build Process
@@ -101,8 +101,8 @@ var uri = baasicKeyValueRouteService.find.expand(params);
 
 ## Contributing
 
-* [Pull requests are always welcome](https://github.com/Baasic/baasic-sdk-sdk-angularjs-core#pull-requests-are-always-welcome)
-* Please [report](https://github.com/Baasic/baasic-sdk-sdk-angularjs-core#issue-reporting) any issues you might  have found
+* [Pull requests are always welcome](https://github.com/Baasic/baasic-sdk-angularjs-key-value#pull-requests-are-always-welcome)
+* Please [report](https://github.com/Baasic/baasic-sdk-angularjs-key-value#issue-reporting) any issues you might  have found
 * Help us write the documentation
 * Create interesting apps using SDK
 * Looking for something else to do? Get in touch..
