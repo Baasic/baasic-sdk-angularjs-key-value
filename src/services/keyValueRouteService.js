@@ -26,13 +26,13 @@
                 **/  			
                 find: uriTemplateService.parse("key-values/{?searchQuery,page,rpp,sort,embed,fields}"),
                 /**
-                * Parses get key value route which must be expanded with the Id of the previously created resource in the system.
+                * Parses get key value route which must be expanded with the Id of the previously created key value resource in the system.
                 * @method        
                 * @example baasicKeyValueRouteService.get.expand({id: "uniqueID"});               
                 **/   				
                 get: uriTemplateService.parse("key-values/{id}/{?embed,fields}"),
                 /**
-                * Parses create key value route, this URI template does not expose any additional options.
+                * Parses create key value route; this URI template does not expose any additional options.
                 * @method        
                 * @example baasicKeyValueRouteService.create.expand({});              
                 **/  				
