@@ -32,65 +32,6 @@ To be able to use the library you will need to add the Baasic (_baasic.keyValue_
 angular.module('my-module', ["baasic.api", "baasic.keyValue"])
 ```
 
-## Key-Value Module
-
-Baasic AngularJS Key-Value services and their functions can be found bellow. For further details please check the [API documentation](#tba)
-
-##### keyValueService
-
-Baasic Key-Value Service provides an easy way to consume Baasic Key-Value REST API.
-
-* `get` - Gets a single key-value resource by Id
-* `find` - Finds key-value resources by given criteria
-* `create` - Creates a new key-value resource
-* `update` - Updates a key-value resource
-* `remove` - Deletes a key-value resource
-* `routeService` - Provides direct access to `keyValueRouteService`
-
-Here are a few examples on how to use the `keyValueService`:
-
-```javascript
-var id = "myKey";
-baasicKeyValueService.get(id)
-    .success(function(data) {
-        // data variable contains a single key-value object that match the key/id
-    });
-```
-
-```javascript
-var options = { searchQuery: "myQuery", page: 1, rpp: 10 };
-baasicKeyValueService.find(options)
-    .success(function(data) {
-        // data variable contains a collection of key-value objects that match the filtering parameters
-    });
-```
-__Note__
-For functions such as `update` and `remove` that don't use `keyValueRouteService` for obtaining route templates, routes can be obtained from key-value (HAL enabled) objects like this:
-
-```javascript
-var params = baasicApiService.removeParams(keyValueObject);
-var uri = params["model"].links('delete').href;
-// i.e. if the keyValueObject had the following id: "myKey"
-// the uri would yield "/key-values/myKey"
-```
-
-##### keyValueRouteService
-
-Baasic Key-Value Route Service provides Baasic route templates which can be expanded to Baasic REST URI's through the [URI Template](https://github.com/Baasic/uritemplate-js) by providing it with an object that contains URI parameters. `keyValueService` uses `keyValueRouteService` to obtain a part of needed routes while the other part is obtained through HAL. `keyValueRouteService` by convention uses the same function names as `keyValueService`.
-
-Here is a list of all the `keyValueRouteService` functions:
-
-* `get`, `find`, `create`
-* `parse` - Provides direct access to the `uriTemplateService`
-
-URI templates can be expanded manually like this:
-
-```javascript
-var params = { searchQuery: "myQuery", page: 1, rpp: 10 };
-var uri = baasicKeyValueRouteService.find.expand(params);
-// uri will yield "/key-values/?searchQuery=myQuery&page=1&rpp=10"
-```
-
 ## Build Process
 
 1. Install [NodeJs](http://nodejs.org/download/)

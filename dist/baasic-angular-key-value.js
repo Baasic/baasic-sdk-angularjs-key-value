@@ -1,13 +1,9 @@
 (function (angular, undefined) {
     /** 
-     * @overview The angular.module is a global place for creating, registering or retrieving modules. All modules should be registered in an application using this mechanism.
+     * @description The angular.module is a global place for creating, registering or retrieving modules. All modules should be registered in an application using this mechanism. An angular module is a container for the different parts of your app - services, directives etc. In order to use `baasic.keyValue` module functionality it must be added as a dependency to your app.
      * @copyright (c) 2015 Mono-Software
      * @license MIT
      * @author Mono-Software
-     */
-
-    /**
-     * An angular module is a container for the different parts of your app - services, directives etc. In order to use baasic.keyValue module functionality it must be added as a dependency to your app.
      * @module baasic.keyValue
      * @example
      (function (Main) {
@@ -33,10 +29,7 @@
     /* globals module */
     /**
      * @module baasicKeyValueRouteService
-     **/
-
-    /** 
-     * @overview Key value route service.
+     * @description Baasic Key-Value Route Service provides Baasic route templates which can be expanded to Baasic REST URI's through the [URI Template](https://github.com/Baasic/uritemplate-js) by providing it with an object that contains URI parameters. `baasicKeyValueService` uses `baasicKeyValueRouteService` to obtain a part of needed routes while the other part is obtained through HAL. Route services by convention use the same function names as their corresponding services.
      * @copyright (c) 2015 Mono-Software
      * @license MIT
      * @author Mono-Software
@@ -79,10 +72,7 @@
     }(angular, module));
     /**
      * @module baasicKeyValueService
-     **/
-
-    /** 
-     * @overview Key value service.
+     * @description Baasic Key-Value Service provides an easy way to consume Baasic Key-Value REST API.
      * @copyright (c) 2015 Mono-Software
      * @license MIT
      * @author Mono-Software
