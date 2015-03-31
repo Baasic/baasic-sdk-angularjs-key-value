@@ -13,7 +13,7 @@
                 /**
                 * Provides direct access to `baasicKeyValueRouteService`.
                 * @method        
-                * @example baasicKeyValueRouteService.routeService.get.expand(expandObject);
+                * @example baasicKeyValueService.routeService.get.expand(expandObject);
                 **/              
                 routeService: keyValueRouteService,
                  /**
