@@ -20,7 +20,7 @@ baasicKeyValueService.find({
   pageSize : 10,
   orderBy : "key",
   orderDirection : "desc",
-  search : "searchTerm"
+  search : "<search-phrase>"
 })
 .success(function (collection) {
   // perform success action here
@@ -36,7 +36,7 @@ baasicKeyValueService.find({
                  * Returns a promise that is resolved once the get action has been performed. Success response returns the key value resource.
                  * @method        
                  * @example 
-baasicKeyValueService.get("uniqueID")
+baasicKeyValueService.get("<key-value-id>")
 .success(function (data) {
   // perform success action here
 })
@@ -52,8 +52,8 @@ baasicKeyValueService.get("uniqueID")
                  * @method        
                  * @example 
 baasicKeyValueService.create({
-  key : "key",
-  value : "value", 
+  key : "<key>",
+  value : "<value>", 
 })
 .success(function (data) {
   // perform success action here
@@ -70,7 +70,7 @@ baasicKeyValueService.create({
                  * @method        
                  * @example 
 // Existing resource is a resource previously fetched using get action.
-existingResource.value = "updated value";
+existingResource.value = "<new-value>";
 baasicKeyValueService.update(existingResource)
 .success(function (data) {
   // perform success action here
