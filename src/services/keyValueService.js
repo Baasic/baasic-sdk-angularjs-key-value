@@ -1,6 +1,6 @@
 ﻿/**
  * @module baasicKeyValueService
- * @description Baasic Key-Value Service provides an easy way to consume Baasic Key-Value REST API.
+ * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API.
  * @copyright (c) 2015 Mono
  * @license MIT
  * @author Mono
