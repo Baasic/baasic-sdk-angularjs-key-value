@@ -24,7 +24,7 @@ baasicKeyValueService.find({
   pageNumber : 1,
   pageSize : 10,
   orderBy : "<key>",
-  orderDirection : "<desc>",
+  orderDirection : "<asc|desc>",
   search : "<search-phrase>"
 })
 .success(function (collection) {
@@ -73,14 +73,14 @@ baasicKeyValueService.create({
                  /**
                  * Returns a promise that is resolved once the update key value action has been performed, this action updates a key value resource. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `update` route can be obtained from key value resource (HAL enabled) objects like this:
 ```
-var params = baasicApiService.removeParams(keyValueObject);
+var params = baasicApiService.removeParams(keyValue);
 var uri = params["model"].links('put').href;
 ```
                  * @method        
                  * @example 
 // Existing resource is a resource previously fetched using get action.
-existingResource.value = "<new-value>";
-baasicKeyValueService.update(existingResource)
+keyValue.value = "<new-value>";
+baasicKeyValueService.update(keyValue)
 .success(function (data) {
   // perform success action here
 })
@@ -95,13 +95,13 @@ baasicKeyValueService.update(existingResource)
                  /**
                  * Returns a promise that is resolved once the remove action has been performed. This action removes a key value resource from the system if successfully compleded. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `remove` route can be obtained from key value resource (HAL enabled) objects like this:
 ```
-var params = baasicApiService.removeParams(keyValueObject);
+var params = baasicApiService.removeParams(keyValue);
 var uri = params["model"].links('delete').href;
 ```
                  * @method        
                  * @example 
 // Existing resource is a resource previously fetched using get action.				 
-baasicKeyValueService.remove(existingResource)
+baasicKeyValueService.remove(keyValue)
 .success(function (data) {
   // perform success action here
 })
