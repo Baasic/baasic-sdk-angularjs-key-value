@@ -7,18 +7,18 @@
      * @module baasic.keyValue
      * @example
      (function (Main) {
-     "use strict";
+     'use strict';
      var dependencies = [
-     "baasic.api",
-     "baasic.membership",
-     "baasic.security",
-     "baasic.appSettings",
-     "baasic.article",
-     "baasic.dynamicResource",
-     "baasic.keyValue",
-     "baasic.valueSet"
+     'baasic.api',
+     'baasic.membership',
+     'baasic.security',
+     'baasic.appSettings',
+     'baasic.article',
+     'baasic.dynamicResource',
+     'baasic.keyValue',
+     'baasic.valueSet'
      ];
-     Main.module = angular.module("myApp.Main", dependencies);
+     Main.module = angular.module('myApp.Main', dependencies);
      }
      (MyApp.Modules.Main = {})); 
      */
@@ -46,13 +46,13 @@
                  * - `sort` - A string used to set the role property to sort the result collection by.
                  * - `embed` - Comma separated list of resources to be contained within the current representation.
                  * @method        
-                 * @example baasicKeyValueRouteService.find.expand({searchQuery: "<search-phrase>"});               
+                 * @example baasicKeyValueRouteService.find.expand({searchQuery: '<search-phrase>'});               
                  **/
                 find: uriTemplateService.parse("key-values/{?searchQuery,page,rpp,sort,embed,fields}"),
                 /**
                  * Parses get key value route which must be expanded with the Id of the previously created key value resource in the system.
                  * @method        
-                 * @example baasicKeyValueRouteService.get.expand({id: "<key-value-id>"});               
+                 * @example baasicKeyValueRouteService.get.expand({id: '<key-value-id>'});               
                  **/
                 get: uriTemplateService.parse("key-values/{id}/{?embed,fields}"),
                 /**
@@ -64,7 +64,7 @@
                 /**
                  * Parses and expands URI templates based on [RFC6570](http://tools.ietf.org/html/rfc6570) specifications. For more information please visit the project [GitHub](https://github.com/Baasic/uritemplate-js) page.
                  * @method
-                 * @example baasicKeyValueRouteService.parse("route/{?embed,fields,options}").expand({embed: "<embedded-resource>"});
+                 * @example baasicKeyValueRouteService.parse('route/{?embed,fields,options}').expand({embed: '<embedded-resource>'});
                  **/
                 parse: uriTemplateService.parse
             };
@@ -94,9 +94,9 @@
                  baasicKeyValueService.find({
                  pageNumber : 1,
                  pageSize : 10,
-                 orderBy : "<key>",
-                 orderDirection : "<asc|desc>",
-                 search : "<search-phrase>"
+                 orderBy : '<key>',
+                 orderDirection : '<asc|desc>',
+                 search : '<search-phrase>'
                  })
                  .success(function (collection) {
                  // perform success action here
@@ -112,7 +112,7 @@
                  * Returns a promise that is resolved once the get action has been performed. Success response returns the specified key value resource.
                  * @method        
                  * @example 
-                 baasicKeyValueService.get("<key-value-id>")
+                 baasicKeyValueService.get('<key-value-id>')
                  .success(function (data) {
                  // perform success action here
                  })
@@ -128,8 +128,8 @@
                  * @method        
                  * @example 
                  baasicKeyValueService.create({
-                 key : "<key>",
-                 value : "<value>", 
+                 key : '<key>',
+                 value : '<value>', 
                  })
                  .success(function (data) {
                  // perform success action here
@@ -145,12 +145,12 @@
                  * Returns a promise that is resolved once the update key value action has been performed, this action updates a key value resource. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `update` route can be obtained from key value resource (HAL enabled) objects like this:
                  ```
                  var params = baasicApiService.removeParams(keyValue);
-                 var uri = params["model"].links('put').href;
+                 var uri = params['model'].links('put').href;
                  ```
                  * @method        
                  * @example 
                  // Existing resource is a resource previously fetched using get action.
-                 keyValue.value = "<new-value>";
+                 keyValue.value = '<new-value>';
                  baasicKeyValueService.update(keyValue)
                  .success(function (data) {
                  // perform success action here
@@ -167,7 +167,7 @@
                  * Returns a promise that is resolved once the remove action has been performed. This action removes a key value resource from the system if successfully compleded. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `remove` route can be obtained from key value resource (HAL enabled) objects like this:
                  ```
                  var params = baasicApiService.removeParams(keyValue);
-                 var uri = params["model"].links('delete').href;
+                 var uri = params['model'].links('delete').href;
                  ```
                  * @method        
                  * @example 
