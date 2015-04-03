@@ -20,9 +20,9 @@
 baasicKeyValueService.find({
   pageNumber : 1,
   pageSize : 10,
-  orderBy : "<key>",
-  orderDirection : "<asc|desc>",
-  search : "<search-phrase>"
+  orderBy : '<key>',
+  orderDirection : '<asc|desc>',
+  search : '<search-phrase>'
 })
 .success(function (collection) {
   // perform success action here
@@ -38,7 +38,7 @@ baasicKeyValueService.find({
                  * Returns a promise that is resolved once the get action has been performed. Success response returns the specified key value resource.
                  * @method        
                  * @example 
-baasicKeyValueService.get("<key-value-id>")
+baasicKeyValueService.get('<key-value-id>')
 .success(function (data) {
   // perform success action here
 })
@@ -54,8 +54,8 @@ baasicKeyValueService.get("<key-value-id>")
                  * @method        
                  * @example 
 baasicKeyValueService.create({
-  key : "<key>",
-  value : "<value>", 
+  key : '<key>',
+  value : '<value>', 
 })
 .success(function (data) {
   // perform success action here
@@ -71,12 +71,12 @@ baasicKeyValueService.create({
                  * Returns a promise that is resolved once the update key value action has been performed, this action updates a key value resource. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `update` route can be obtained from key value resource (HAL enabled) objects like this:
 ```
 var params = baasicApiService.removeParams(keyValue);
-var uri = params["model"].links('put').href;
+var uri = params['model'].links('put').href;
 ```
                  * @method        
                  * @example 
 // Existing resource is a resource previously fetched using get action.
-keyValue.value = "<new-value>";
+keyValue.value = '<new-value>';
 baasicKeyValueService.update(keyValue)
 .success(function (data) {
   // perform success action here
@@ -93,7 +93,7 @@ baasicKeyValueService.update(keyValue)
                  * Returns a promise that is resolved once the remove action has been performed. This action removes a key value resource from the system if successfully compleded. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `remove` route can be obtained from key value resource (HAL enabled) objects like this:
 ```
 var params = baasicApiService.removeParams(keyValue);
-var uri = params["model"].links('delete').href;
+var uri = params['model'].links('delete').href;
 ```
                  * @method        
                  * @example 
