@@ -1,9 +1,6 @@
 ﻿/**
  * @module baasicKeyValueService
- * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API.
- * @copyright (c) 2015 Mono
- * @license MIT
- * @author Mono
+ * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API. In order to obtain a needed routes `baasicKeyValueService` uses `baasicKeyValueRouteService`.
 */
 (function (angular, module, undefined) {
     "use strict";
@@ -116,3 +113,12 @@ baasicKeyValueService.remove(keyValue)
             };
         }]);
 }(angular, module));
+/**
+ * @copyright (c) 2015 Mono
+ * @license MIT
+ * @author Mono
+ * @overview 
+ ***Notes:**
+ - Refer to the [REST API documentation](https://github.com/Baasic/baasic-rest-api/wiki) for detailed information about Baasic REST API end-points.
+ - All end-point objects are transformed by the associated route service.
+*/
