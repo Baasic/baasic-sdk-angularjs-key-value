@@ -71,7 +71,7 @@ baasicKeyValueService.create({
                     return baasicApiHttp.post(keyValueRouteService.create.expand(), baasicApiService.createParams(data)[baasicConstants.modelPropertyName]);
                 },
                  /**
-                 * Returns a promise that is resolved once the update key value action has been performed, this action updates a key value resource. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `update` route can be obtained from key value resource (HAL enabled) objects like this:
+                 * Returns a promise that is resolved once the update key value action has been performed, this action updates a key value resource. This route uses HAL enabled objects to obtain routes and therefore it doesn't use `baasicKeyValueRouteService` route template, here is an example of how a route can be obtained from HAL enabled objects:
 ```
 var params = baasicApiService.removeParams(keyValue);
 var uri = params['model'].links('put').href;
@@ -93,7 +93,7 @@ baasicKeyValueService.update(keyValue)
                     return baasicApiHttp.put(params[baasicConstants.modelPropertyName].links('put').href, params[baasicConstants.modelPropertyName]);
                 },
                  /**
-                 * Returns a promise that is resolved once the remove action has been performed. This action removes a key value resource from the system if successfully compleded. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `remove` route can be obtained from key value resource (HAL enabled) objects like this:
+                 * Returns a promise that is resolved once the remove action has been performed. This action removes a key value resource from the system if successfully compleded. This route uses HAL enabled objects to obtain routes and therefore it doesn't use `baasicKeyValueRouteService` route template, here is an example of how a route can be obtained from HAL enabled objects:
 ```
 var params = baasicApiService.removeParams(keyValue);
 var uri = params['model'].links('delete').href;
