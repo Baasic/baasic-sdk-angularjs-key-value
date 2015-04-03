@@ -1,9 +1,6 @@
 ﻿/**
  * @module baasicKeyValueService
- * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API.
- * @copyright (c) 2015 Mono
- * @license MIT
- * @author Mono
+ * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API. In order to obtain a needed routes `baasicKeyValueService` uses `baasicKeyValueRouteService`.
 */
 (function (angular, module, undefined) {
     "use strict";
@@ -23,9 +20,9 @@
 baasicKeyValueService.find({
   pageNumber : 1,
   pageSize : 10,
-  orderBy : '<key>',
-  orderDirection : '<asc|desc>',
-  search : '<search-phrase>'
+  orderBy : "<key>",
+  orderDirection : "<asc|desc>",
+  search : "<search-phrase>"
 })
 .success(function (collection) {
   // perform success action here
@@ -41,7 +38,7 @@ baasicKeyValueService.find({
                  * Returns a promise that is resolved once the get action has been performed. Success response returns the specified key value resource.
                  * @method        
                  * @example 
-baasicKeyValueService.get('<key-value-id>')
+baasicKeyValueService.get("<key-value-id>")
 .success(function (data) {
   // perform success action here
 })
@@ -57,8 +54,8 @@ baasicKeyValueService.get('<key-value-id>')
                  * @method        
                  * @example 
 baasicKeyValueService.create({
-  key : '<key>',
-  value : '<value>', 
+  key : "<key>",
+  value : "<value>", 
 })
 .success(function (data) {
   // perform success action here
@@ -74,12 +71,12 @@ baasicKeyValueService.create({
                  * Returns a promise that is resolved once the update key value action has been performed, this action updates a key value resource. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `update` route can be obtained from key value resource (HAL enabled) objects like this:
 ```
 var params = baasicApiService.removeParams(keyValue);
-var uri = params['model'].links('put').href;
+var uri = params["model"].links('put').href;
 ```
                  * @method        
                  * @example 
 // Existing resource is a resource previously fetched using get action.
-keyValue.value = '<new-value>';
+keyValue.value = "<new-value>";
 baasicKeyValueService.update(keyValue)
 .success(function (data) {
   // perform success action here
@@ -96,7 +93,7 @@ baasicKeyValueService.update(keyValue)
                  * Returns a promise that is resolved once the remove action has been performed. This action removes a key value resource from the system if successfully compleded. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `remove` route can be obtained from key value resource (HAL enabled) objects like this:
 ```
 var params = baasicApiService.removeParams(keyValue);
-var uri = params['model'].links('delete').href;
+var uri = params["model"].links('delete').href;
 ```
                  * @method        
                  * @example 
@@ -116,3 +113,12 @@ baasicKeyValueService.remove(keyValue)
             };
         }]);
 }(angular, module));
+/**
+ * @copyright (c) 2015 Mono
+ * @license MIT
+ * @author Mono
+ * @overview 
+ ***Notes:**
+ - Refer to the [REST API documentation](https://github.com/Baasic/baasic-rest-api/wiki) for detailed information about Baasic REST API end-points.
+ - All end-point objects are transformed by the associated route service.
+*/
