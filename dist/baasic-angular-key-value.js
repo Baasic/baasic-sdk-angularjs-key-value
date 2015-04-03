@@ -29,10 +29,7 @@
     /* globals module */
     /**
      * @module baasicKeyValueRouteService
-     * @description Baasic Key Value Route Service provides Baasic route templates which can be expanded to Baasic REST URI's through the [URI Template](https://github.com/Baasic/uritemplate-js) by providing it with an object that contains URI parameters. `baasicKeyValueService` uses `baasicKeyValueRouteService` to obtain a part of needed routes while the other part is obtained through HAL. Route services by convention use the same function names as their corresponding services.
-     * @copyright (c) 2015 Mono
-     * @license MIT
-     * @author Mono
+     * @description Baasic Key Value Route Service provides Baasic route templates which can be expanded to Baasic REST URIs. Various services can use Baasic Key Value Route Service to obtain a needed routes while some routes will be obtained through HAL. By convention, all route services  use the same function names as their corresponding services.
      */
     (function (angular, module, undefined) {
         "use strict";
@@ -64,18 +61,25 @@
                 /**
                  * Parses and expands URI templates based on [RFC6570](http://tools.ietf.org/html/rfc6570) specifications. For more information please visit the project [GitHub](https://github.com/Baasic/uritemplate-js) page.
                  * @method
-                 * @example baasicKeyValueRouteService.parse('route/{?embed,fields,options}').expand({embed: '<embedded-resource>'});
+                 * @example baasicKeyValueRouteService.parse('<route>/{?embed,fields,options}').expand({embed: '<embedded-resource>'});
                  **/
                 parse: uriTemplateService.parse
             };
         }]);
     }(angular, module));
     /**
-     * @module baasicKeyValueService
-     * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API.
      * @copyright (c) 2015 Mono
      * @license MIT
      * @author Mono
+     * @overview 
+     ***Notes:**
+     - Refer to the [REST API documentation](https://github.com/Baasic/baasic-rest-api/wiki) for detailed information about Baasic REST API end-points.
+     - [URI Template](https://github.com/Baasic/uritemplate-js) syntax enables expanding the Baasic route templates to Baasic REST URIs providing it with an object that contains URI parameters.
+     - All end-point objects are transformed by the associated route service.
+     */
+    /**
+     * @module baasicKeyValueService
+     * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API. In order to obtain a needed routes `baasicKeyValueService` uses `baasicKeyValueRouteService`.
      */
     (function (angular, module, undefined) {
         "use strict";
@@ -142,7 +146,7 @@
                     return baasicApiHttp.post(keyValueRouteService.create.expand(), baasicApiService.createParams(data)[baasicConstants.modelPropertyName]);
                 },
                 /**
-                 * Returns a promise that is resolved once the update key value action has been performed, this action updates a key value resource. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `update` route can be obtained from key value resource (HAL enabled) objects like this:
+                 * Returns a promise that is resolved once the update key value action has been performed, this action updates a key value resource. This route uses HAL enabled objects to obtain routes and therefore it doesn't use `baasicKeyValueRouteService` route template, here is an example of how a route can be obtained from HAL enabled objects:
                  ```
                  var params = baasicApiService.removeParams(keyValue);
                  var uri = params['model'].links('put').href;
@@ -164,7 +168,7 @@
                     return baasicApiHttp.put(params[baasicConstants.modelPropertyName].links('put').href, params[baasicConstants.modelPropertyName]);
                 },
                 /**
-                 * Returns a promise that is resolved once the remove action has been performed. This action removes a key value resource from the system if successfully compleded. This function doesn't use `baasicKeyValueRouteService` for obtaining route templates, however `remove` route can be obtained from key value resource (HAL enabled) objects like this:
+                 * Returns a promise that is resolved once the remove action has been performed. This action removes a key value resource from the system if successfully compleded. This route uses HAL enabled objects to obtain routes and therefore it doesn't use `baasicKeyValueRouteService` route template, here is an example of how a route can be obtained from HAL enabled objects:
                  ```
                  var params = baasicApiService.removeParams(keyValue);
                  var uri = params['model'].links('delete').href;
@@ -187,4 +191,14 @@
             };
         }]);
     }(angular, module));
+    /**
+     * @copyright (c) 2015 Mono
+     * @license MIT
+     * @author Mono
+     * @overview 
+     ***Notes:**
+     - Refer to the [REST API documentation](https://github.com/Baasic/baasic-rest-api/wiki) for detailed information about Baasic REST API end-points.
+     - All end-point objects are transformed by the associated route service.
+     */
+
 })(angular);
