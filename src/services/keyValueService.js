@@ -50,7 +50,7 @@ baasicKeyValueService.get('<key-value-id>')
                     return baasicApiHttp.get(keyValueRouteService.get.expand(baasicApiService.getParams(id, options)));
                 },
                  /**
-                 * Returns a promise that is resolved once the create key value action has been performed, this action creates a new key value resource.
+                 * Returns a promise that is resolved once the create key value action has been performed; this action creates a new key value resource.
                  * @method        
                  * @example 
 baasicKeyValueService.create({
@@ -68,14 +68,14 @@ baasicKeyValueService.create({
                     return baasicApiHttp.post(keyValueRouteService.create.expand(), baasicApiService.createParams(data)[baasicConstants.modelPropertyName]);
                 },
                  /**
-                 * Returns a promise that is resolved once the update key value action has been performed, this action updates a key value resource. This route uses HAL enabled objects to obtain routes and therefore it doesn't use `baasicKeyValueRouteService` route template, here is an example of how a route can be obtained from HAL enabled objects:
+                 * Returns a promise that is resolved once the update key value action has been performed; this action updates a key value resource. This route uses HAL enabled objects to obtain routes and therefore it doesn't apply `baasicKeyValueRouteService` route template. Here is an example of how a route can be obtained from HAL enabled objects:
 ```
 var params = baasicApiService.removeParams(keyValue);
 var uri = params['model'].links('put').href;
 ```
                  * @method        
                  * @example 
-// Existing resource is a resource previously fetched using get action.
+// keyValue is a resource previously fetched using get action.
 keyValue.value = '<new-value>';
 baasicKeyValueService.update(keyValue)
 .success(function (data) {
@@ -90,14 +90,14 @@ baasicKeyValueService.update(keyValue)
                     return baasicApiHttp.put(params[baasicConstants.modelPropertyName].links('put').href, params[baasicConstants.modelPropertyName]);
                 },
                  /**
-                 * Returns a promise that is resolved once the remove action has been performed. This action removes a key value resource from the system if successfully compleded. This route uses HAL enabled objects to obtain routes and therefore it doesn't use `baasicKeyValueRouteService` route template, here is an example of how a route can be obtained from HAL enabled objects:
+                 * Returns a promise that is resolved once the remove action has been performed. This action will remove a key value resource from the system if successfully completed. This route uses HAL enabled objects to obtain routes and therefore it doesn't apply `baasicKeyValueRouteService` route template. Here is an example of how a route can be obtained from HAL enabled objects:
 ```
 var params = baasicApiService.removeParams(keyValue);
 var uri = params['model'].links('delete').href;
 ```
                  * @method        
                  * @example 
-// Existing resource is a resource previously fetched using get action.				 
+// keyValue is a resource previously fetched using get action.				 
 baasicKeyValueService.remove(keyValue)
 .success(function (data) {
   // perform success action here
@@ -119,6 +119,6 @@ baasicKeyValueService.remove(keyValue)
  * @author Mono
  * @overview 
  ***Notes:**
- - Refer to the [REST API documentation](https://github.com/Baasic/baasic-rest-api/wiki) for detailed information about Baasic REST API end-points.
+ - Refer to the [REST API documentation](https://github.com/Baasic/baasic-rest-api/wiki) for detailed information about available Baasic REST API end-points.
  - All end-point objects are transformed by the associated route service.
 */
