@@ -37,10 +37,10 @@
             return {
                 /**
                  * Parses find key value route which can be expanded with additional options. Supported items are: 
-                 * - `searchQuery` - A string referencing resource properties using the phrase or query search.
-                 * - `page` - A value used to set the page offset, i.e. to retrieve certain resource subset from the storage.
+                 * - `searchQuery` - A string value used to identify key value resources using the phrase search.
+                 * - `page` - A value used to set the page number, i.e. to retrieve certain key value subset from the storage.
                  * - `rpp` - A value used to limit the size of result set per page.
-                 * - `sort` - A string used to set the role property to sort the result collection by.
+                 * - `sort` - A string used to set the key value property to sort the result collection by.
                  * - `embed` - Comma separated list of resources to be contained within the current representation.
                  * @method        
                  * @example baasicKeyValueRouteService.find.expand({searchQuery: '<search-phrase>'});               
@@ -79,18 +79,12 @@
      */
     /**
      * @module baasicKeyValueService
-     * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API. In order to obtain a needed routes `baasicKeyValueService` uses `baasicKeyValueRouteService`.
+     * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API end-points. In order to obtain a needed routes `baasicKeyValueService` uses `baasicKeyValueRouteService`.
      */
     (function (angular, module, undefined) {
         "use strict";
         module.service("baasicKeyValueService", ["baasicApiHttp", "baasicApiService", "baasicConstants", "baasicKeyValueRouteService", function (baasicApiHttp, baasicApiService, baasicConstants, keyValueRouteService) {
             return {
-                /**
-                 * Provides direct access to `baasicKeyValueRouteService`.
-                 * @method        
-                 * @example baasicKeyValueService.routeService.get.expand(expandObject);
-                 **/
-                routeService: keyValueRouteService,
                 /**
                  * Returns a promise that is resolved once the find action has been performed. Success response returns a list of key value resources matching the given criteria.
                  * @method        
@@ -98,7 +92,7 @@
                  baasicKeyValueService.find({
                  pageNumber : 1,
                  pageSize : 10,
-                 orderBy : '<key>',
+                 orderBy : '<field>',
                  orderDirection : '<asc|desc>',
                  search : '<search-phrase>'
                  })
@@ -187,7 +181,13 @@
                 remove: function (data) {
                     var params = baasicApiService.removeParams(data);
                     return baasicApiHttp.delete(params[baasicConstants.modelPropertyName].links('delete').href);
-                }
+                },
+                /**
+                 * Provides direct access to `baasicKeyValueRouteService`.
+                 * @method        
+                 * @example baasicKeyValueService.routeService.get.expand(expandObject);
+                 **/
+                routeService: keyValueRouteService
             };
         }]);
     }(angular, module));

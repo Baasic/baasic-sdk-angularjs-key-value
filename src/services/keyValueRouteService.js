@@ -10,10 +10,10 @@
             return {
                 /**
                 * Parses find key value route which can be expanded with additional options. Supported items are: 
-                * - `searchQuery` - A string referencing resource properties using the phrase or query search.
-                * - `page` - A value used to set the page offset, i.e. to retrieve certain resource subset from the storage.
+                * - `searchQuery` - A string value used to identify key value resources using the phrase search.
+                * - `page` - A value used to set the page number, i.e. to retrieve certain key value subset from the storage.
                 * - `rpp` - A value used to limit the size of result set per page.
-                * - `sort` - A string used to set the role property to sort the result collection by.
+                * - `sort` - A string used to set the key value property to sort the result collection by.
 				* - `embed` - Comma separated list of resources to be contained within the current representation.
                 * @method        
                 * @example baasicKeyValueRouteService.find.expand({searchQuery: '<search-phrase>'});               

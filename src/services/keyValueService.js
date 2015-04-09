@@ -1,18 +1,12 @@
 ﻿/**
  * @module baasicKeyValueService
- * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API. In order to obtain a needed routes `baasicKeyValueService` uses `baasicKeyValueRouteService`.
+ * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API end-points. In order to obtain a needed routes `baasicKeyValueService` uses `baasicKeyValueRouteService`.
 */
 (function (angular, module, undefined) {
     "use strict";
     module.service("baasicKeyValueService", ["baasicApiHttp", "baasicApiService", "baasicConstants", "baasicKeyValueRouteService",
         function (baasicApiHttp, baasicApiService, baasicConstants, keyValueRouteService) {
             return {
-                /**
-                * Provides direct access to `baasicKeyValueRouteService`.
-                * @method        
-                * @example baasicKeyValueService.routeService.get.expand(expandObject);
-                **/              
-                routeService: keyValueRouteService,
                  /**
                  * Returns a promise that is resolved once the find action has been performed. Success response returns a list of key value resources matching the given criteria.
                  * @method        
@@ -20,7 +14,7 @@
 baasicKeyValueService.find({
   pageNumber : 1,
   pageSize : 10,
-  orderBy : '<key>',
+  orderBy : '<field>',
   orderDirection : '<asc|desc>',
   search : '<search-phrase>'
 })
@@ -109,7 +103,13 @@ baasicKeyValueService.remove(keyValue)
                 remove: function (data) {
                     var params = baasicApiService.removeParams(data);
                     return baasicApiHttp.delete(params[baasicConstants.modelPropertyName].links('delete').href);
-                }
+                },
+                /**
+                * Provides direct access to `baasicKeyValueRouteService`.
+                * @method        
+                * @example baasicKeyValueService.routeService.get.expand(expandObject);
+                **/              
+                routeService: keyValueRouteService
             };
         }]);
 }(angular, module));

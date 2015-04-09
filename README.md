@@ -17,7 +17,7 @@ This section will describe how to add the Baasic AngularJS Key-Value library to 
 Please add the _Baasic Key-Value_ include after the _Baasic Angular Core_ include:
 
 ```html
-<script src='/js/baasic-angular-1.0.0.min.js'></script>
+<script src='/js/baasic-angular-core-1.0.0.min.js'></script>
 <script src='/js/baasic-angular-key-value-1.0.0.min.js'></script>
 ```
 
