@@ -1,9 +1,6 @@
 (function (angular, undefined) {
     /** 
      * @description The angular.module is a global place for creating, registering or retrieving modules. All modules should be registered in an application using this mechanism. An angular module is a container for the different parts of your app - services, directives etc. In order to use `baasic.keyValue` module functionality it must be added as a dependency to your app.
-     * @copyright (c) 2015 Mono
-     * @license MIT
-     * @author Mono
      * @module baasic.keyValue
      * @example
      (function (Main) {
@@ -43,13 +40,19 @@
                  * - `sort` - A string used to set the key value property to sort the result collection by.
                  * - `embed` - Comma separated list of resources to be contained within the current representation.
                  * @method        
-                 * @example baasicKeyValueRouteService.find.expand({searchQuery: '<search-phrase>'});               
+                 * @example 
+                 baasicKeyValueRouteService.find.expand(
+                 {searchQuery: '<search-phrase>'}
+                 );
                  **/
                 find: uriTemplateService.parse("key-values/{?searchQuery,page,rpp,sort,embed,fields}"),
                 /**
                  * Parses get key value route which must be expanded with the Id of the previously created key value resource in the system.
                  * @method        
-                 * @example baasicKeyValueRouteService.get.expand({id: '<key-value-id>'});               
+                 * @example 
+                 baasicKeyValueRouteService.get.expand(
+                 {id: '<key-value-id>'}
+                 );
                  **/
                 get: uriTemplateService.parse("key-values/{id}/{?embed,fields}"),
                 /**
@@ -61,16 +64,18 @@
                 /**
                  * Parses and expands URI templates based on [RFC6570](http://tools.ietf.org/html/rfc6570) specifications. For more information please visit the project [GitHub](https://github.com/Baasic/uritemplate-js) page.
                  * @method
-                 * @example baasicKeyValueRouteService.parse('<route>/{?embed,fields,options}').expand({embed: '<embedded-resource>'});
+                 * @example 
+                 baasicKeyValueRouteService.parse(
+                 '<route>/{?embed,fields,options}'
+                 ).expand(
+                 {embed: '<embedded-resource>'}
+                 );
                  **/
                 parse: uriTemplateService.parse
             };
         }]);
     }(angular, module));
     /**
-     * @copyright (c) 2015 Mono
-     * @license MIT
-     * @author Mono
      * @overview 
      ***Notes:**
      - Refer to the [REST API documentation](https://github.com/Baasic/baasic-rest-api/wiki) for detailed information about available Baasic REST API end-points.
@@ -192,9 +197,6 @@
         }]);
     }(angular, module));
     /**
-     * @copyright (c) 2015 Mono
-     * @license MIT
-     * @author Mono
      * @overview 
      ***Notes:**
      - Refer to the [REST API documentation](https://github.com/Baasic/baasic-rest-api/wiki) for detailed information about available Baasic REST API end-points.
