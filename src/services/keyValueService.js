@@ -1,6 +1,6 @@
 ﻿/**
  * @module baasicKeyValueService
- * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API end-points. In order to obtain a needed routes `baasicKeyValueService` uses `baasicKeyValueRouteService`.
+ * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API end-points. In order to obtain needed routes `baasicKeyValueService` uses `baasicKeyValueRouteService`.
 */
 (function (angular, module, undefined) {
     "use strict";
