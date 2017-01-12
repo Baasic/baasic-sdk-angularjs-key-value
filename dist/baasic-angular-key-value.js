@@ -1,3 +1,8 @@
+/*
+ Baasic AngularJS Key Value v0.9.0
+ (c) 2014-2016 Mono http://baasic.com
+ License: MIT
+*/
 (function (angular, undefined) {
     /** 
      * @description The angular.module is a global place for creating, registering or retrieving modules. All modules should be registered in an application using this mechanism. An angular module is a container for the different parts of your app - services, directives etc. In order to use `baasic.keyValue` module functionality it must be added as a dependency to your app.
@@ -29,7 +34,7 @@
     /* globals module */
     /**
      * @module baasicKeyValueRouteService
-     * @description Baasic Key Value Route Service provides Baasic route templates which can be expanded to Baasic REST URIs. Various services can use Baasic Key Value Route Service to obtain a needed routes while other routes will be obtained through HAL. By convention, all route services  use the same function names as their corresponding services.
+     * @description Baasic Key Value Route Service provides Baasic route templates which can be expanded to Baasic REST URIs. Various services can use Baasic Key Value Route Service to obtain needed routes while other routes will be obtained through HAL. By convention, all route services  use the same function names as their corresponding services.
      */
     (function (angular, module, undefined) {
         "use strict";
@@ -43,13 +48,19 @@
                  * - `sort` - A string used to set the key value property to sort the result collection by.
                  * - `embed` - Comma separated list of resources to be contained within the current representation.
                  * @method        
-                 * @example baasicKeyValueRouteService.find.expand({searchQuery: '<search-phrase>'});               
+                 * @example 
+                 baasicKeyValueRouteService.find.expand(
+                 {searchQuery: '<search-phrase>'}
+                 );
                  **/
                 find: uriTemplateService.parse("key-values/{?searchQuery,page,rpp,sort,embed,fields}"),
                 /**
                  * Parses get key value route which must be expanded with the Id of the previously created key value resource in the system.
                  * @method        
-                 * @example baasicKeyValueRouteService.get.expand({id: '<key-value-id>'});               
+                 * @example 
+                 baasicKeyValueRouteService.get.expand(
+                 {id: '<key-value-id>'}
+                 );
                  **/
                 get: uriTemplateService.parse("key-values/{id}/{?embed,fields}"),
                 /**
@@ -61,7 +72,12 @@
                 /**
                  * Parses and expands URI templates based on [RFC6570](http://tools.ietf.org/html/rfc6570) specifications. For more information please visit the project [GitHub](https://github.com/Baasic/uritemplate-js) page.
                  * @method
-                 * @example baasicKeyValueRouteService.parse('<route>/{?embed,fields,options}').expand({embed: '<embedded-resource>'});
+                 * @example 
+                 baasicKeyValueRouteService.parse(
+                 '<route>/{?embed,fields,options}'
+                 ).expand(
+                 {embed: '<embedded-resource>'}
+                 );
                  **/
                 parse: uriTemplateService.parse
             };
@@ -79,7 +95,7 @@
      */
     /**
      * @module baasicKeyValueService
-     * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API end-points. In order to obtain a needed routes `baasicKeyValueService` uses `baasicKeyValueRouteService`.
+     * @description Baasic Key Value Service provides an easy way to consume Baasic Key Value REST API end-points. In order to obtain needed routes `baasicKeyValueService` uses `baasicKeyValueRouteService`.
      */
     (function (angular, module, undefined) {
         "use strict";
