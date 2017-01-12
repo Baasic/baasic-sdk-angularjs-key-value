@@ -1,6 +1,6 @@
 # Baasic Key-Value AngularJS SDK
 
-Baasic AngularJS Key-Value library provides access to [Baasic REST API](https://api.baasic.com/beta) key value end-points.
+Baasic AngularJS Key-Value library provides access to [Baasic REST API](http://dev.baasic.com/api/reference/home) key value end-points.
 
 ## Dependencies
 
